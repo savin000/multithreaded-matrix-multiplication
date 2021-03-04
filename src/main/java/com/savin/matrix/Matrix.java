@@ -1,4 +1,4 @@
-package com.savin;
+package com.savin.matrix;
 
 import java.util.Random;
 
