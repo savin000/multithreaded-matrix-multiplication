@@ -1,8 +1,5 @@
 package com.savin.matrix;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import java.util.Random;
 
 /**
@@ -11,7 +8,6 @@ import java.util.Random;
  * @author Mikhail Savin
  */
 public class Matrix {
-    private static final Logger LOG = LogManager.getLogger();
 
     /**
      * Default matrix dimension
@@ -156,7 +152,6 @@ public class Matrix {
      */
     public Matrix multiply(Matrix matrix) throws MatrixException {
         Matrix resultingMatrix = new Matrix(rows, matrix.getColumns());
-        long startTime = System.nanoTime();
 
         if (columns == matrix.getRows()) {
             for (int i = 0; i < columns; i++) {
@@ -170,9 +165,6 @@ public class Matrix {
             throw new MatrixException("Cannot multiply because the number of columns in the first matrix " +
                     "doesn't equal the number of rows in the second");
         }
-        long endTime = System.nanoTime();
-        LOG.info("Multiplication took " + (endTime - startTime) / 1000000 + " milliseconds");
-
         return resultingMatrix;
     }
 }
